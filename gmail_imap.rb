@@ -3,6 +3,7 @@
 # Author: Benjamin Oakes <hello@benjaminoakes.com>
 require 'yaml'
 require 'net/imap'
+require 'nokogiri'
 
 settings = YAML.load(File.read('credentials.yml'))
 USERNAME = settings['username']
@@ -59,3 +60,6 @@ IMAPAccount.new('imap.gmail.com', '993', true) do |imap_account|
     puts
   end
 end
+
+# doc = Nokogiri::HTML(s)
+# doc.css('.xgray.xcontrast_txt a').last.text
